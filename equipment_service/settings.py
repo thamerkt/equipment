@@ -94,19 +94,11 @@ ALLOWED_HOSTS = ["*"]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATABASE_NAME', 'equipment_db'),
-        'USER': os.getenv('DATABASE_USER', 'thamer'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'thamer4a'),
-        'HOST': os.getenv('DATABASE_HOST', 'db'),  # Must match the Docker service name
-        'PORT': os.getenv('DATABASE_PORT', '5432'),
-    },
-    'users_db': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('account_db'),
-        'USER': os.environ.get('DATABASE_USER'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': os.environ.get('DATABASE_HOST'),
-        'PORT': os.environ.get('DATABASE_PORT'),
+        'NAME': os.environ.get('PGDATABASE', 'account_db_kpsn'),  # fallback to your DB name
+        'USER': os.environ.get('PGUSER', 'thamer'),               # fallback username
+        'PASSWORD': os.environ.get('PGPASSWORD'),                  # **must be set in env**
+        'HOST': os.environ.get('PGHOST', 'dpg-d0tflpqdbo4c739ks99g-a'),  # your internal hostname
+        'PORT': os.environ.get('PGPORT', '5432'),                  # default postgres port
     }
 }
 
