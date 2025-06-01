@@ -61,6 +61,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'equipment_service.urls'
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
+WSGI_APPLICATION = 'equipment_service.wsgi.application'
 
 
 PUBLIC_MEDIA_URL = os.environ.get('PUBLIC_MEDIA_URL', 'https://5b22-197-29-209-95.ngrok-free.app/')
@@ -84,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'equipment_service.wsgi.application'
+
 
 
 import os
